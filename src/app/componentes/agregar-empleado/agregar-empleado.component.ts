@@ -30,7 +30,6 @@ export class AgregarEmpleadoComponent implements OnInit {
     this.crudService.AgregarEmpleado(this.formularioDeEmpleados.value).subscribe(respuesta=>{
       this.ruteador.navigateByUrl('/listar-empleado');
     });
-    
   }
 
 }
