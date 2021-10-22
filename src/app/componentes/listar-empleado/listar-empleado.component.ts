@@ -15,13 +15,10 @@ export class ListarEmpleadoComponent implements OnInit {
 
   ngOnInit(): void {
     this.crudService.ObtenerEmpleados().subscribe(respuesta=>{
-      console.log(respuesta);
       this.Empleados=respuesta;
     });
   }
   borrarRegistro(id:any,iControl:any){
-    console.log(id);
-    console.log(iControl);
     if(window.confirm("¿Desea eliminar?")){
     this.crudService.BorrarEmpleado(id).subscribe((respuesta)=>{
       this.Empleados.splice(iControl,1);

@@ -18,10 +18,8 @@ formularioDeEmpleados:FormGroup;
     private ruteador:Router
   ) {
     this.elID=this.activeRoute.snapshot.paramMap.get('id');
-    console.log(this.elID);
     this.crudService.ObtenerEmpleado(this.elID).subscribe(
       respuesta=>{
-        console.log(respuesta);
         this.formularioDeEmpleados.setValue({
           nombre:respuesta[0]['nombre'],
           correo:respuesta[0]['correo']
@@ -40,8 +38,6 @@ formularioDeEmpleados:FormGroup;
   }
   
   enviarDatos():any{
-    console.log(this.elID);
-    console.log(this.formularioDeEmpleados.value);
     this.crudService.EditarEmpleado(this.elID,this.formularioDeEmpleados.value).subscribe(()=>{
       this.ruteador.navigateByUrl('/listar-empleado');
     });
